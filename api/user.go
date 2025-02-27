@@ -3,11 +3,11 @@ package api
 import (
 	"database/sql"
 	"net/http"
+	"time"
 
 	db "github.com/Neilpatel5502/GoSimpleBank/db/sqlc"
 	"github.com/Neilpatel5502/GoSimpleBank/util"
 	"github.com/gin-gonic/gin"
-	"github.com/jackc/pgx/v5/pgtype"
 	"github.com/lib/pq"
 )
 
@@ -22,8 +22,8 @@ type userResponse struct {
 	Username          string
 	FullName          string
 	Email             string
-	PasswordChangedAt pgtype.Timestamptz
-	CreatedAt         pgtype.Timestamptz
+	PasswordChangedAt time.Time
+	CreatedAt         time.Time
 }
 
 func newUserResponse(user db.User) userResponse {
